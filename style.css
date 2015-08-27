@@ -94,7 +94,9 @@ section h2 {
 .item header a {
 	display: inline-block;
 }
-
+.item header h4 {
+	margin: 0.15em 1em 0.35em 0;
+}
 .item .position {
 	font-weight: 600;
 	font-size: 100%;

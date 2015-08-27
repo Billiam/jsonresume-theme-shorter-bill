@@ -103,6 +103,10 @@
 			<header>
 				{{#if company}}
 					<h3 class="name">{{company}}</h3>
+
+					{{#if website}}
+					<h4 class="url"><a href="{{website}}">{{website}}</a></h4>
+					{{/if}}
 				{{/if}}
 			</header>
 			{{#if position}}
@@ -118,11 +122,11 @@
 			{{/if}}
 			{{#if endDate}}
 			<span class="endDate">
-				- {{date endDate}}
+				&ndash; {{date endDate}}
 			</span>
 			{{else}}
 			<span class="endDate">
-				- Present
+				&ndash; Present
 			</span>
 			{{/if}}
 
@@ -166,11 +170,11 @@
 			{{/if}}
 			{{#if endDate}}
 			<span class="endDate">
-				- {{date endDate}}
+				&ndash; {{date endDate}}
 			</span>
 			{{else}}
 			<span class="endDate">
-				- Present
+				&ndash; Present
 			</span>
 			{{/if}}
 
@@ -210,11 +214,11 @@
 				{{/if}}
 				{{#if endDate}}
 				<span class="endDate">
-					- {{date endDate}}
+					&ndash; {{date endDate}}
 				</span>
 				{{else}}
 				<span class="endDate">
-					- Present
+					&ndash; Present
 				</span>
 				{{/if}}
 			</div>
@@ -228,7 +232,7 @@
 
 				{{#if area}}
 				<span class="area">
-					- {{area}}
+					&ndash; {{area}}
 				</span>
 				{{/if}}
 
@@ -256,7 +260,7 @@
 			{{/if}}
 			{{#if date}}
 			<div class="date">
-				{{date}}
+				{{date date}}
 			</div>
 			{{/if}}
 			{{#if awarder}}
@@ -291,12 +295,12 @@
 			{{/if}}
 			{{#if releaseDate}}
 			<div class="releaseDate">
-				{{releaseDate}}
+				{{medium_date releaseDate}}
 			</div>
 			{{/if}}
 			{{#if website}}
 			<div class="website">
-				<a href="{{website}}">Link</a>
+				<a href="{{website}}">{{website}}</a>
 			</div>
 			{{/if}}
 			{{#if summary}}

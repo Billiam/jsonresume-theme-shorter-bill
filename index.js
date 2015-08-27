@@ -1,17 +1,21 @@
 var fs = require("fs");
 var Handlebars = require("handlebars");
+var moment = require('moment');
+
 
 function render(resume) {
 	var css = fs.readFileSync(__dirname + "/style.css", "utf-8");
 	var template = fs.readFileSync(__dirname + "/resume.template", "utf-8");
-	// var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-	var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+	
+	var short_date = 'MMM YYYY';
+	var medium_date = 'MMM DD, YYYY';
 
-	// Nicer dates
 	Handlebars.registerHelper('date', function(date) {
-	  var theDate = new Date(date);
+		return moment(date).format(short_date);
+	});
 
-	  return months[theDate.getMonth()] + ' ' + theDate.getFullYear();
+	Handlebars.registerHelper('medium_date', function(date) {
+		return moment(date).format(medium_date);
 	});
 
 	return Handlebars.compile(template)({

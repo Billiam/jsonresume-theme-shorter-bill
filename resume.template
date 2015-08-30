@@ -10,9 +10,6 @@
 	<style>
 	{{{css}}}
 	</style>
-	<style media="print">
-		body { font-size: 12px; }
-	</style>
 
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,300' rel='stylesheet' type='text/css'>
 	
@@ -22,7 +19,7 @@
 	<div id="resume">
 
 	{{#resume.basics}}
-	<section class="heading">
+	<section class="heading nobreak">
 		<header>
 			<h1>{{name}}</h1>
 			<div class="contact">
@@ -74,7 +71,7 @@
 	{{/resume.basics}}
 
 	{{#if resume.skills.length}}
-	<section id="skills">
+	<section id="skills" class="nobreak">
 		<h2>Skills</h2>
 		{{#each resume.skills}}
 		<div class="item">
@@ -97,9 +94,12 @@
 
 	{{#if resume.work.length}}
 	<section class="experience">
-		<h2>Experience</h2>
 		{{#each resume.work}}
-		<section class="item">
+		{{#if @first}}
+		<div class="nobreak">
+		<h2>Experience</h2>
+		{{/if}}
+		<section class="item nobreak">
 			<header>
 				{{#if company}}
 					<h3 class="name">{{company}}</h3>
@@ -143,15 +143,21 @@
 			</ul>
 			{{/if}}
 		</section>
+		{{#if @first}}
+		</div>
+		{{/if}}
 		{{/each}}
 	</section>
 	{{/if}}
 
 	{{#if resume.volunteer.length}}
 	<section class="experience">
-		<h2>Volunteering</h2>
 		{{#each resume.volunteer}}
-		<div class="item">
+		{{#if @first}}
+		<div class="nobreak">
+		<h2>Volunteering</h2>
+		{{/if}}
+		<div class="item nobreak">
 			<header>
 				{{#if organization}}
 					<h3 class="name">{{organization}}</h3>
@@ -194,19 +200,25 @@
 			</ul>
 			{{/if}}
 		</div>
+		{{#if @first}}
+		</div>
+		{{/if}}
 		{{/each}}
 	</section>
 	{{/if}}
 	
 	{{#if resume.education.length}}
 	<section id="education">
-		<h2>Education</h2>
 		{{#each resume.education}}
-		<div class="item">
+		{{#if @first}}
+		<div class="nobreak">
+		<h2>Education</h2>
+		{{/if}}
+		<div class="item nobreak">
 			<header>
-				{{#if institution}}
-					<h3 class="name">{{institution}}</h3>
-				{{/if}}
+			{{#if institution}}
+				<h3 class="name">{{institution}}</h3>
+			{{/if}}
 			</header>
 
 			<div class="dates">
@@ -254,20 +266,26 @@
 			</ul>
 			{{/if}}
 		</div>
+		{{#if @first}}
+		</div>
+		{{/if}}
 		{{/each}}
 	</section>
 	{{/if}}
 	
 	{{#if resume.awards.length}}
-	<section id="awards">
+	<section id="awards" class="nobreak">
 		<h2>Awards</h2>
 		{{#each resume.awards}}
 		<div class="item">
 			{{#if title}}
-			<div class="title">
-				{{title}}
-			</div>
+			<header>
+				<h3 class="name">
+					{{title}}
+				</h3>
+			</header>
 			{{/if}}
+
 			{{#if date}}
 			<div class="date">
 				{{date date}}
@@ -289,14 +307,16 @@
 	{{/if}}
 	
 	{{#if resume.publications.length}}
-	<section id="publications">
+	<section id="publications" class="nobreak">
 		<h2>Publications</h2>
 		{{#each resume.publications}}
 		<div class="item">
 			{{#if name}}
-			<div class="name">
-				{{name}}
-			</div>
+			<header>
+				<h3 class="name">
+					{{name}}
+				</h3>
+			</header>
 			{{/if}}
 			{{#if publisher}}
 			<div class="publisher">
@@ -324,7 +344,7 @@
 	{{/if}}
 
 	{{#if resume.languages.length}}
-	<section id="languages">
+	<section id="languages" class="nobreak">
 		<h2>Languages</h2>
 		{{#each resume.languages}}
 		<div class="item">
@@ -344,7 +364,7 @@
 	{{/if}}
 
 	{{#if resume.nationalities.length}}
-	<section id="nationality">
+	<section id="nationality" class="nobreak">
 		<h2>Nationality</h2>
 		{{#each resume.nationalities}}
 		<div class="item">
@@ -359,7 +379,7 @@
 	{{/if}}
 
 	{{#if resume.interests.length}}
-	<section id="interests">
+	<section id="interests" class="nobreak">
 		<h2>Interests</h2>
 		{{#each resume.interests}}
 		<div class="item">
@@ -382,7 +402,7 @@
 
 
 	{{#if resume.references.length}}
-	<section id="references">
+	<section id="references" class="nobreak">
 		<h2>References</h2>
 		{{#each resume.references}}
 		<div class="item">
